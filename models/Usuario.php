@@ -16,7 +16,7 @@
                     exit();
                 } else {
                     // Buscamos al usuario en base de datos en caso de que los campos esten llenos
-                    $sql = "SELECT * FROM tm_usuario WHERE usu_correo = ? AND usu_pass = ? and est = 1";
+                    $sql = "SELECT * FROM tm_usuario WHERE usu_correo = ? AND usu_pass = ? and estado = 1";
                     $stmt = $conectar->prepare($sql);
                     $stmt->bindValue(1, $correo);
                     $stmt->bindValue(2, $pass);
@@ -30,7 +30,7 @@
                         $_SESSION["usu_ape"] = $resultado["usu_ape"];
                         $_SESSION["usu_correo"] = $resultado["usu_correo"];
                         // Redireccionamos a la pantalla de Home
-                        header("Location: ".Conectar::ruta()."view/Home/");
+                        header("Location: ".Conectar::ruta()."view/UsuHome/");
                         exit();
                     } else {
                         // En caso no coincidan el usuario o la contraseña
