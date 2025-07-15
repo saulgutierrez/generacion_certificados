@@ -1,4 +1,6 @@
 <?php
+    // Inicializando la sesion del usuario
+    session_start();
     // Clase Conectar
     class Conectar {
         protected $dbh;
@@ -22,7 +24,7 @@
         }
 
         // Ruta principal del proyecto
-        public function ruta() {
+        public static function ruta() {
             return "http://localhost/generacion_certificados/";
         }
     }

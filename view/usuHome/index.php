@@ -1,3 +1,9 @@
+<?php
+  // Llamamos al archivo de conexion
+  require_once("../../config/conexion.php");
+  if (isset($_SESSION["usu_id"])) {
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,7 +24,7 @@
         <h4 class="tx-gray-800 mg-b-5">Home</h4>
         <p class="mg-b-0">Pantalla Home</p>
       </div>
-
+      <!-- Contenido del proyecto -->
       <div class="br-pagebody">
         <!-- start you own content here -->
 
@@ -28,3 +34,9 @@
     <?php require_once("../html/MainJS.php"); ?>
   </body>
 </html>
+<?php
+  } else {
+    // Si no ha iniciado sesion, se redirecciona a la ventana principal
+    header("Location: ".Conectar::ruta()."view/404");
+  }
+?>
