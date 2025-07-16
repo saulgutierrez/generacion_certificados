@@ -23,10 +23,8 @@
         <h4 class="tx-gray-800 mg-b-5">Perfil</h4>
         <p class="mg-b-0">Pantalla Perfil</p>
       </div>
-
       <div class="br-pagebody">
-        <!-- start you own content here -->
-
+        
       </div><!-- br-pagebody -->
     </div><!-- br-mainpanel -->
     <!-- ########## END: MAIN PANEL ########## -->
