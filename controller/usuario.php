@@ -18,7 +18,7 @@
                 $sub_array[] = $row["cur_fech_ini"];
                 $sub_array[] = $row["cur_fech_fin"];
                 $sub_array[] = $row["inst_nombre"] ." ".$row["inst_apep"];
-                $sub_array[] = '<button type="button" onClick="certificado('.$row["curd_id"].');" id="'.$row["curd_id"].'" class="btn btn-outline-warning btn-icon"><div><i class="fa fa-edit"></i></div></button>';
+                $sub_array[] = '<button type="button" onClick="certificado('.$row["curd_id"].');" id="'.$row["curd_id"].'" class="btn btn-outline-primary btn-icon"><div><i class="fa fa-id-card-o"></i></div></button>';
                 $data[] = $sub_array;
             }
 
