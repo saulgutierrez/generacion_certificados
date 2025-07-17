@@ -29,5 +29,30 @@
                 "aaData"=>$data);
             echo json_encode($results);
             break;
+        
+        // Microservicio para mostrar informacion del certificado con el curd_id
+        case "mostrar_curso_detalle":
+            $datos = $usuario->get_curso_por_id_detalle($_POST["curd_id"]);
+            // Si la variable datos no esta vacia, y esta formateada en forma de array, la recorremos
+            if (is_array($datos) == true and count($datos) <> 0) {
+                foreach ($datos as $row) {
+                    $output["curd_id"] = $row["curd_id"];
+                    $output["cur_nom"] = $row["cur_nom"];
+                    $output["cur_descrip"] = $row["cur_descrip"];
+                    $output["cur_fech_ini"] = $row["cur_fech_ini"];
+                    $output["cur_fech_fin"] = $row["cur_fech_fin"];
+                    $output["usu_id"] = $row["usu_id"];
+                    $output["usu_nom"] = $row["usu_nom"];
+                    $output["usu_apep"] = $row["usu_apep"];
+                    $output["usu_apem"] = $row["usu_apem"];
+                    $output["inst_id"] = $row["inst_id"];
+                    $output["inst_nombre"] = $row["inst_nombre"];
+                    $output["inst_apep"] = $row["inst_apep"];
+                    $output["inst_apem"] = $row["inst_apem"];
+                }
+                // Almacenamos los datos dentro de un array y lo convertimos a formato JSON, para que pueda ser leido por JS
+                echo json_encode($output);
+            }
+            break;
     }
 ?>
