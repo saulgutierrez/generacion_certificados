@@ -19,14 +19,18 @@
         </p>
 
         <div class="form-layout-footer bd pd-20 bd-t-0">
-            <button class="btn btn-outline-info"> <i class="fa fa-send mg-r-10"></i> PNG</button>
-            <button class="btn btn-outline-success"> <i class="fa fa-send mg-r-10"></i> PDF</button>
+            <button class="btn btn-outline-info" id="btnpng"> <i class="fa fa-send mg-r-10"></i> PNG</button>
+            <button class="btn btn-outline-success" id="btnpdf"> <i class="fa fa-send mg-r-10"></i> PDF</button>
         </div><!-- form-group -->
 
       </div>
     </div><!-- ht-100v -->
 
     <?php require_once("../html/MainJS.php"); ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/3.0.1/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script type="text/javascript" src="certificado.js"></script>
   </body>
 </html>
