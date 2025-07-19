@@ -54,5 +54,15 @@
                 echo json_encode($output);
             }
             break;
+
+        case "total":
+            $datos = $usuario->get_total_cursos_por_usuario($_POST["usu_id"]);
+            if (is_array($datos) == true and count($datos) <> 0) {
+                foreach ($datos as $row) {
+                    $output["total"] = $row["total"];
+                }
+                echo json_encode($output);
+            }
+            break;
     }
 ?>

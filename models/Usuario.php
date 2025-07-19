@@ -102,5 +102,16 @@
             $sql->execute();
             return $resultado = $sql->fetchAll();
         }
+
+        // Cantidad de cursos por usuario
+        public function get_total_cursos_por_usuario($usu_id) {
+            $conectar = parent::Conexion();
+            parent::set_names();
+            $sql = "SELECT count(*) as total FROM td_curso_usuario WHERE usu_id = ?";
+            $sql = $conectar->prepare($sql);
+            $sql->bindValue(1, $usu_id);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
     }
 ?>
