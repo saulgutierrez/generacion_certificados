@@ -29,6 +29,27 @@
                 "aaData"=>$data);
             echo json_encode($results);
             break;
+
+        case "listar_cursos_top10":
+            $datos = $usuario->get_cursos_por_usuario_top10($_SESSION["usu_id"]);
+            $data = Array();
+            foreach($datos as $row) {
+                $sub_array = array();
+                $sub_array[] = $row["cur_nom"];
+                $sub_array[] = $row["cur_fech_ini"];
+                $sub_array[] = $row["cur_fech_fin"];
+                $sub_array[] = $row["inst_nombre"] ." ".$row["inst_apep"];
+                $sub_array[] = '<button type="button" onClick="certificado('.$row["curd_id"].');" id="'.$row["curd_id"].'" class="btn btn-outline-primary btn-icon"><div><i class="fa fa-id-card-o"></i></div></button>';
+                $data[] = $sub_array;
+            }
+
+            $results = array(
+                "sEcho"=>1,
+                "iTotalRecords"=>count($data),
+                "iTotalDisplayRecords"=>count($data),
+                "aaData"=>$data);
+            echo json_encode($results);
+            break;
         
         // Microservicio para mostrar informacion del certificado con el curd_id
         case "mostrar_curso_detalle":
@@ -54,7 +75,7 @@
                 echo json_encode($output);
             }
             break;
-
+        // Total de cursos por usuario para el dashboard
         case "total":
             $datos = $usuario->get_total_cursos_por_usuario($_POST["usu_id"]);
             if (is_array($datos) == true and count($datos) <> 0) {

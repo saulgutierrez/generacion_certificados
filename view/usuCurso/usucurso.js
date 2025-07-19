@@ -1,3 +1,5 @@
+var usu_id = $('#user_idx').val();
+
 $(document).ready(function () {
     // Formato para el componente DataTable
     $('#cursos_data').DataTable({
@@ -13,7 +15,7 @@ $(document).ready(function () {
             url: "../../controller/usuario.php?op=listar_cursos",
             type: "POST",
             data: {
-                usu_id:1
+                usu_id:usu_id
             },
         },
         "bDestroy": true,
