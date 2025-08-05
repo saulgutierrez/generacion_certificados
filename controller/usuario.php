@@ -85,7 +85,7 @@
                 echo json_encode($output);
             }
             break;
-        
+        // Mostrar informacion del usuario en la vista perfil
         case "mostrar":
             $datos = $usuario->get_usuario_por_id($_POST["usu_id"]);
             // Si la variable datos no esta vacia, y esta formateada en forma de array, la recorremos
@@ -103,6 +103,19 @@
                 // Almacenamos los datos dentro de un array y lo convertimos a formato JSON, para que pueda ser leido por JS
                 echo json_encode($output);
             }
+            break;
+        
+        // Actualizar datos de perfil
+        case  "update_perfil":
+            $usuario->update_usuario_perfil(
+                $_POST["usu_id"],
+                $_POST["usu_nom"],
+                $_POST["usu_apep"],
+                $_POST["usu_apem"],
+                $_POST["usu_pass"],
+                $_POST["usu_sex"],
+                $_POST["usu_telf"]
+            );
             break;
     }
 ?>

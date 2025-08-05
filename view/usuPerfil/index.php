@@ -79,7 +79,7 @@
             </div><!-- row -->
 
             <div class="form-layout-footer">
-              <button class="btn btn-info">Actualizar</button>
+              <button class="btn btn-info" id="btnactualizar">Actualizar</button>
             </div><!-- form-layout-footer -->
           </div><!-- form-layout -->
 
