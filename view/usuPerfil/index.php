@@ -39,7 +39,7 @@
               <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">Apellido Paterno: <span class="tx-danger">*</span></label>
-                  <input class="form-control" type="text" name="usu_apep" id="usu_apep" placeholder="Apellido Patrerno" required>
+                  <input class="form-control" type="text" name="usu_apep" id="usu_apep" placeholder="Apellido Paterno" required>
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-4">
@@ -51,7 +51,7 @@
               <div class="col-lg-6">
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">Correo Electrónico: <span class="tx-danger">*</span></label>
-                  <input class="form-control" type="text" name="address" name="usu_correo" id="usu_correo">
+                  <input class="form-control" type="text" name="address" name="usu_correo" id="usu_correo" readonly>
                 </div>
               </div>
               <div class="col-lg-6">
@@ -73,7 +73,7 @@
               <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label">Telefono: <span class="tx-danger">*</span></label>
-                  <input class="form-control" type="number" name="usu_tel" id="usu_tel" placeholder="Ingrese telefono" required>
+                  <input class="form-control" type="number" name="usu_telf" id="usu_telf" placeholder="Ingrese telefono" required>
                 </div>
               </div><!-- col-4 -->
             </div><!-- row -->
@@ -89,6 +89,7 @@
     </div><!-- br-mainpanel -->
     <!-- ########## END: MAIN PANEL ########## -->
     <?php require_once("../html/MainJS.php"); ?>
+    <script type="text/javascript" src="usuperfil.js"></script>
   </body>
 </html>
 <?php

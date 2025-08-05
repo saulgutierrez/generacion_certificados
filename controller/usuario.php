@@ -85,5 +85,24 @@
                 echo json_encode($output);
             }
             break;
+        
+        case "mostrar":
+            $datos = $usuario->get_usuario_por_id($_POST["usu_id"]);
+            // Si la variable datos no esta vacia, y esta formateada en forma de array, la recorremos
+            if (is_array($datos) == true and count($datos) <> 0) {
+                foreach ($datos as $row) {
+                    $output["usu_id"] = $row["usu_id"];
+                    $output["usu_nom"] = $row["usu_nom"];
+                    $output["usu_apep"] = $row["usu_apep"];
+                    $output["usu_apem"] = $row["usu_apem"];
+                    $output["usu_correo"] = $row["usu_correo"];
+                    $output["usu_sex"] = $row["usu_sex"];
+                    $output["usu_pass"] = $row["usu_pass"];
+                    $output["usu_telf"] = $row["usu_telf"];
+                }
+                // Almacenamos los datos dentro de un array y lo convertimos a formato JSON, para que pueda ser leido por JS
+                echo json_encode($output);
+            }
+            break;
     }
 ?>

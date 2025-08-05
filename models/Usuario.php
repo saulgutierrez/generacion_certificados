@@ -144,5 +144,16 @@
             $sql->execute();
             return $resultado = $sql->fetchAll();
         }
+
+        // Mostrar los datos del usuario segun el id
+        public function get_usuario_por_id($usu_id) {
+            $conectar = parent::Conexion();
+            parent::set_names();
+            $sql = "SELECT * FROM tm_usuario WHERE estado = 1 AND usu_id = ?";
+            $sql = $conectar->prepare($sql);
+            $sql->bindValue(1, $usu_id);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
     }
 ?>
