@@ -29,7 +29,7 @@ if (isset($_SESSION["usu_id"])) {
                 <div class="br-section-wrapper">
                     <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Cursos</h6>
                     <p class="mg-b-30 tx-gray-600">Listado de cursos</p>
-                    <button class="btn btn-outline-primary" id="add_button" onclick="newregistro()"><i class="fa fa-plus-square mg-r-10"></i> Nuevo Registro</button>
+                    <button class="btn btn-outline-primary" id="add_button" onclick="nuevo()"><i class="fa fa-plus-square mg-r-10"></i> Nuevo Registro</button>
                     <p></p>
                     <div class="table-wrapper">
                         <table id="cursos_data" class="table display responsive nowrap">
@@ -52,6 +52,7 @@ if (isset($_SESSION["usu_id"])) {
             </div><!-- br-pagebody -->
         </div><!-- br-mainpanel -->
         <!-- ########## END: MAIN PANEL ########## -->
+        <?php require_once("modalmantenimiento.php"); ?> 
         <?php require_once("../html/MainJS.php"); ?>
         <script type="text/javascript" src="adminmntcurso.js"></script>
     </body>

@@ -54,3 +54,7 @@ function editar(cur_id) {
 function eliminar(cur_id) {
 
 }
+
+function nuevo() {
+    $('#modalmantenimiento').modal('show');
+}
