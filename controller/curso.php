@@ -26,8 +26,8 @@
                     $output["cat_id"] = $row["cat_id"];
                     $output["cur_nom"] = $row["cur_nom"];
                     $output["cur_descrip"] = $row["cur_descrip"];
-                    $output["cur_fechini"] = $row["cur_fechini"];
-                    $output["cur_fechfin"] = $row["cur_fechfin"];
+                    $output["cur_fech_ini"] = $row["cur_fech_ini"];
+                    $output["cur_fech_fin"] = $row["cur_fech_fin"];
                     $output["inst_id"] = $row["inst_id"];
                 }
                 // Almacenamos los datos dentro de un array y lo convertimos a formato JSON, para que pueda ser leido por JS
@@ -46,12 +46,11 @@
                 $sub_array = array();
                 $sub_array[] = $row["cat_id"];
                 $sub_array[] = $row["cur_nom"];
-                $sub_array[] = $row["cur_descrip"];
-                $sub_array[] = $row["cur_fechini"];
-                $sub_array[] = $row["cur_fechfin"];
+                $sub_array[] = $row["cur_fech_ini"];
+                $sub_array[] = $row["cur_fech_fin"];
                 $sub_array[] = $row["inst_id"];
-                $sub_array[] = '<button type="button" onClick="editar('.$row["cur_id"].');" id="'.$row["cur_id"].'" class="btn btn-outline-warning btn-icon"><div><i class="fa fa-id-card-o"></i></div></button>';
-                $sub_array[] = '<button type="button" onClick="eliminar('.$row["cur_id"].');" id="'.$row["cur_id"].'" class="btn btn-outline-danger btn-icon"><div><i class="fa fa-id-card-o"></i></div></button>';
+                $sub_array[] = '<button type="button" onClick="editar('.$row["cur_id"].');" id="'.$row["cur_id"].'" class="btn btn-outline-warning btn-icon"><div><i class="fa fa-edit"></i></div></button>';
+                $sub_array[] = '<button type="button" onClick="eliminar('.$row["cur_id"].');" id="'.$row["cur_id"].'" class="btn btn-outline-danger btn-icon"><div><i class="fa fa-close"></i></div></button>';
                 $data[] = $sub_array;
             }
 
