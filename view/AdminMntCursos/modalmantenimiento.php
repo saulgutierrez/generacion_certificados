@@ -42,7 +42,9 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label class="form-control-label">Instructor: <span class="tx-danger">*</span> </label>
-                            <input class="form-control tx-uppercase" id="inst_id" type="text" name="inst_id" required>
+                            <select class="form-control select2" style="width: 100%" data-placeholder="Seleccione" name="inst_id" id="inst_id">
+                                <option label="Seleccione"></option>
+                            </select>
                         </div>
                     </div>
                 </form>

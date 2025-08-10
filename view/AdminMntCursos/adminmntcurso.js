@@ -6,9 +6,17 @@ $(document).ready(function () {
         dropdownParent: $('#modalmantenimiento')
     });
     
+    $('#inst_id').select2({
+        dropdownParent: $('#modalmantenimiento')
+    });
+
     // Retornamos un objeto html y lo incrustamos en el DOM
     $.post("../../controller/categoria.php?op=combo", function (data) {
         $('#cat_id').html(data);
+    });
+
+    $.post("../../controller/instructor.php?op=combo", function (data) {
+        $('#inst_id').html(data);
     });
 
     $('#cursos_data').DataTable({
