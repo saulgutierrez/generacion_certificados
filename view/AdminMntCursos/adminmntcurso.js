@@ -2,6 +2,15 @@
 var usu_id = $('#user_idx').val();
 
 $(document).ready(function () {
+    $('#cat_id').select2({
+        dropdownParent: $('#modalmantenimiento')
+    });
+    
+    // Retornamos un objeto html y lo incrustamos en el DOM
+    $.post("../../controller/categoria.php?op=combo", function (data) {
+        $('#cat_id').html(data);
+    });
+
     $('#cursos_data').DataTable({
         "aProcessing": true,
         "aServerSide": true,

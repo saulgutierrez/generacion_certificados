@@ -10,7 +10,9 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label class="form-control-label">Categoria: <span class="tx-danger">*</span> </label>
-                            <input class="form-control tx-uppercase" id="cat_id" type="text" name="cat_id" required>
+                            <select class="form-control select2" style="width: 100%" data-placeholder="Seleccione" name="cat_id" id="cat_id">
+                                <option label="Seleccione"></option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-lg-12">
