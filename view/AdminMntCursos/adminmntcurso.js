@@ -1,6 +1,29 @@
 // Obtenemos el id del usuario tomandolo desde la variable de sesion oculta en el MainHeader
 var usu_id = $('#user_idx').val();
 
+function init() {
+    $("#cursos_form").on("submit", function(e) {
+        guardaryeditar(e);
+    });
+}
+
+function guardaryeditar(e) {
+    e.preventDefault();
+    var formData = new FormData($("#cursos_form")[0]);
+    $.ajax({
+        url: '../../controller/curso.php?op=guardaryeditar',
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(data) {
+            console.log(data);
+            $('#cursos_data').DataTable().ajax.reload();
+            $('#modalmantenimiento').modal('hide');
+        }
+    });
+}
+
 $(document).ready(function () {
     $('#cat_id').select2({
         dropdownParent: $('#modalmantenimiento')
@@ -75,3 +98,5 @@ function eliminar(cur_id) {
 function nuevo() {
     $('#modalmantenimiento').modal('show');
 }
+
+init();
