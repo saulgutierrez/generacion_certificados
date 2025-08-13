@@ -53,7 +53,26 @@
         public function get_curso() {
             $conectar = parent::Conexion();
             parent::set_names();
-            $sql = "SELECT * FROM tm_curso WHERE est = 1";
+            $sql = "SELECT 
+                tm_curso.cur_id,
+                tm_curso.cur_nom,
+                tm_curso.cur_descrip,
+                tm_curso.cur_fech_ini,
+                tm_curso.cur_fech_fin,
+                tm_curso.cat_id,
+                tm_categoria.cat_nom,
+                tm_curso.inst_id,
+                tm_instructor.inst_nombre,
+                tm_instructor.inst_apep,
+                tm_instructor.inst_apem,
+                tm_instructor.inst_correo,
+                tm_instructor.inst_correo,
+                tm_instructor.inst_sex,
+                tm_instructor.inst_telf
+                FROM tm_curso 
+                INNER JOIN tm_categoria ON tm_curso.cat_id = tm_categoria.cat_id
+                INNER JOIN tm_instructor ON tm_curso.inst_id = tm_instructor.inst_id
+                WHERE tm_curso.est = 1";
             $sql = $conectar->prepare($sql);
             $sql->execute();
             return $resultado = $sql->fetchAll();

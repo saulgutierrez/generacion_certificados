@@ -33,14 +33,8 @@ $(document).ready(function () {
         dropdownParent: $('#modalmantenimiento')
     });
 
-    // Retornamos un objeto html y lo incrustamos en el DOM
-    $.post("../../controller/categoria.php?op=combo", function (data) {
-        $('#cat_id').html(data);
-    });
-
-    $.post("../../controller/instructor.php?op=combo", function (data) {
-        $('#inst_id').html(data);
-    });
+    combo_categoria();
+    combo_instructor();
 
     $('#cursos_data').DataTable({
         "aProcessing": true,
@@ -88,7 +82,8 @@ $(document).ready(function () {
 });
 
 function editar(cur_id) {
-
+    $('#lbltitulo').html('Editar Registro');
+    $('#modalmantenimiento').modal('show');
 }
 
 function eliminar(cur_id) {
@@ -96,7 +91,24 @@ function eliminar(cur_id) {
 }
 
 function nuevo() {
+    $('#lbltitulo').html("Nuevo registro");
+    $('#cursos_form')[0].reset();
+    combo_categoria();
+    combo_instructor();
     $('#modalmantenimiento').modal('show');
+}
+
+function combo_categoria() {
+    // Retornamos un objeto html y lo incrustamos en el DOM
+    $.post("../../controller/categoria.php?op=combo", function (data) {
+        $('#cat_id').html(data);
+    });
+}
+
+function combo_instructor() {
+    $.post("../../controller/instructor.php?op=combo", function (data) {
+        $('#inst_id').html(data);
+    });
 }
 
 init();

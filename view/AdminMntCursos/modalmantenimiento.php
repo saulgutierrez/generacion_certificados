@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content bd-0">
             <div class="modal-header pd-y-20 pd-x-25">
-                <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Nuevo Registro</h6>
+                <h6 id="lbltitulo" class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold"></h6>
             </div>
             <!-- Formulario Mantenimiento -->
             <form method="post" id="cursos_form">
