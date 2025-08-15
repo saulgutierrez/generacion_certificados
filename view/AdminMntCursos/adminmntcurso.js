@@ -20,6 +20,13 @@ function guardaryeditar(e) {
             console.log(data);
             $('#cursos_data').DataTable().ajax.reload();
             $('#modalmantenimiento').modal('hide');
+
+            Swal.fire({
+                title: 'Correcto',
+                text: 'Se registro correctamente',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            })
         }
     });
 }
