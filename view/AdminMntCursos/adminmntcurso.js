@@ -104,7 +104,26 @@ function editar(cur_id) {
 }
 
 function eliminar(cur_id) {
-
+    Swal.fire({
+        title: "Eliminar",
+        text: "¿Desea eliminar el registro?",
+        icon: "error",
+        confirmButtonText: "Si",
+        showCancelButton: true,
+        cancelButtonText: "No",
+    }).then((result) => {
+        if (result.value) {
+            $.post("../../controller/curso.php?op=eliminar", {cur_id: cur_id}, function (data) {
+                $('#cursos_data').DataTable().ajax.reload();
+                Swal.fire({
+                    title: 'Correcto',
+                    text: 'Se elimino correctamente',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                })
+            });
+        }
+    });
 }
 
 function nuevo() {
