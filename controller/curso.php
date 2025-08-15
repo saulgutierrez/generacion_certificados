@@ -13,7 +13,7 @@
             if (empty($_POST["cur_id"])) {
                 $curso->insert_curso($_POST["cat_id"], $_POST["cur_nom"], $_POST["cur_descrip"], $_POST["cur_fech_ini"], $_POST["cur_fech_fin"], $_POST["inst_id"]);
             } else {
-                $curso->update_curso($_POST["cat_id"], $_POST["cur_nom"], $_POST["cur_descrip"], $_POST["cur_fech_ini"], $_POST["cur_fech_fin"], $_POST["inst_id"], $_POST["cur_id"]);
+                $curso->update_curso($_POST["cur_id"], $_POST["cat_id"], $_POST["cur_nom"], $_POST["cur_descrip"], $_POST["cur_fech_ini"], $_POST["cur_fech_fin"], $_POST["inst_id"]);
             }
             break;
         // Creando JSON segun el id

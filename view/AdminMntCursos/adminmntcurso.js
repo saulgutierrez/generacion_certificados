@@ -11,7 +11,7 @@ function guardaryeditar(e) {
     e.preventDefault();
     var formData = new FormData($("#cursos_form")[0]);
     $.ajax({
-        url: '../../controller/curso.php?op=guardaryeditar',
+        url: "../../controller/curso.php?op=guardaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -89,6 +89,16 @@ $(document).ready(function () {
 });
 
 function editar(cur_id) {
+    $.post("../../controller/curso.php?op=mostrar", {cur_id: cur_id}, function (data) {
+        data = JSON.parse(data);
+        $('#cur_id').val(data.cur_id);
+        $('#cat_id').val(data.cat_id).trigger('change');
+        $('#cur_nom').val(data.cur_nom);
+        $('#cur_descrip').val(data.cur_descrip);
+        $('#cur_fech_ini').val(data.cur_fech_ini);
+        $('#cur_fech_fin').val(data.cur_fech_fin);
+        $('#inst_id').val(data.inst_id).trigger('change');
+    });
     $('#lbltitulo').html('Editar Registro');
     $('#modalmantenimiento').modal('show');
 }
