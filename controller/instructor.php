@@ -10,7 +10,7 @@
     switch($_GET["op"]) {
         // Guardar y editar cuando se tenga el id
         case "guardaryeditar":
-            if (empty($_POST["cur_id"])) {
+            if (empty($_POST["inst_id"])) {
                 $instructor->insert_instructor($_POST["inst_nom"], $_POST["inst_apep"], $_POST["inst_apem"], $_POST["inst_correo"], $_POST["inst_sex"], $_POST["inst_telef"]);
             } else {
                 $instructor->update_instructor($_POST["inst_id"], $_POST["inst_nom"], $_POST["inst_apep"], $_POST["inst_apem"], $_POST["inst_correo"], $_POST["inst_sex"], $_POST["inst_telef"]);
@@ -23,12 +23,12 @@
             if (is_array($datos) == true and count($datos) <> 0) {
                 foreach ($datos as $row) {
                     $output["inst_id"] = $row["inst_id"];
-                    $output["inst_nom"] = $row["inst_nom"];
+                    $output["inst_nom"] = $row["inst_nombre"];
                     $output["inst_apep"] = $row["inst_apep"];
                     $output["inst_apem"] = $row["inst_apem"];
                     $output["inst_correo"] = $row["inst_correo"];
                     $output["inst_sex"] = $row["inst_sex"];
-                    $output["inst_telf"] = $row["inst_telf"];
+                    $output["inst_telef"] = $row["inst_telf"];
                 }
                 // Almacenamos los datos dentro de un array y lo convertimos a formato JSON, para que pueda ser leido por JS
                 echo json_encode($output);

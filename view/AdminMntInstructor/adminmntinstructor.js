@@ -82,17 +82,22 @@ $(document).ready(function () {
     });
 });
 
-function editar(cat_id) {
-    $.post("../../controller/instructor.php?op=mostrar", {cat_id: cat_id}, function (data) {
+function editar(inst_id) {
+    $.post("../../controller/instructor.php?op=mostrar", {inst_id: inst_id}, function (data) {
         data = JSON.parse(data);
-        $('#cat_id').val(data.cat_id);
-        $('#cat_nom').val(data.cat_nom);
+        $('#inst_id').val(data.inst_id);
+        $('#inst_nom').val(data.inst_nom);
+        $('#inst_apep').val(data.inst_apep);
+        $('#inst_apem').val(data.inst_apem);
+        $('#inst_correo').val(data.inst_correo);
+        $('#inst_sex').val(data.inst_sex).trigger('change');
+        $('#inst_telef').val(data.inst_telef);
     });
     $('#lbltitulo').html('Editar Registro');
     $('#modalmantenimiento').modal('show');
 }
 
-function eliminar(cat_id) {
+function eliminar(inst_id) {
     Swal.fire({
         title: "Eliminar",
         text: "¿Desea eliminar el registro?",
@@ -102,7 +107,7 @@ function eliminar(cat_id) {
         cancelButtonText: "No",
     }).then((result) => {
         if (result.value) {
-            $.post("../../controller/instructor.php?op=eliminar", {cat_id: cat_id}, function (data) {
+            $.post("../../controller/instructor.php?op=eliminar", {inst_id: inst_id}, function (data) {
                 console.log(data);
                 $('#instructor_data').DataTable().ajax.reload();
                 Swal.fire({
@@ -118,6 +123,7 @@ function eliminar(cat_id) {
 
 function nuevo() {
     $('#inst_id').val('');
+    $('#inst_sex').val('').trigger('change');
     $('#lbltitulo').html("Nuevo registro");
     $('#instructor_form')[0].reset();
     $('#modalmantenimiento').modal('show');
