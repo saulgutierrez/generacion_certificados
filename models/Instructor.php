@@ -3,7 +3,7 @@
         public function insert_instructor($inst_nom, $inst_apep, $inst_apem, $inst_correo, $inst_sex, $inst_tel) {
             $conectar = parent::Conexion();
             parent::set_names();
-            $sql = "INSERT INTO tm_instructor (inst_id, inst_nom, inst_apep, inst_apem, inst_correo, inst_sex, inst_tel, fech_crea, est) VALUES (NULL,?,?,?,?,?,?,now(),'1');";
+            $sql = "INSERT INTO tm_instructor (inst_id, inst_nombre, inst_apep, inst_apem, inst_correo, inst_sex, inst_telf, fech_crea, est) VALUES (NULL,?,?,?,?,?,?,now(),'1');";
             $sql = $conectar->prepare($sql);
             $sql->bindValue(1, $inst_nom);
             $sql->bindValue(2, $inst_apep);
@@ -20,7 +20,7 @@
             parent::set_names();
             $sql = "UPDATE tm_instructor
                     SET
-                        inst_nom = ?,
+                        inst_nombre = ?,
                         inst_apep = ?,
                         inst_apem = ?,
                         inst_correo = ?,

@@ -11,9 +11,9 @@
         // Guardar y editar cuando se tenga el id
         case "guardaryeditar":
             if (empty($_POST["cur_id"])) {
-                $instructor->insert_instructor($_POST["inst_nom"], $_POST["inst_apep"], $_POST["inst_apem"], $_POST["inst_correo"], $_POST["inst_sex"], $_POST["inst_tel"]);
+                $instructor->insert_instructor($_POST["inst_nom"], $_POST["inst_apep"], $_POST["inst_apem"], $_POST["inst_correo"], $_POST["inst_sex"], $_POST["inst_telef"]);
             } else {
-                $instructor->update_instructor($_POST["inst_id"], $_POST["inst_nom"], $_POST["inst_apep"], $_POST["inst_apem"], $_POST["inst_correo"], $_POST["inst_sex"], $_POST["inst_tel"]);
+                $instructor->update_instructor($_POST["inst_id"], $_POST["inst_nom"], $_POST["inst_apep"], $_POST["inst_apem"], $_POST["inst_correo"], $_POST["inst_sex"], $_POST["inst_telef"]);
             }
             break;
         // Creando JSON segun el id
@@ -44,7 +44,7 @@
             $data = Array();
             foreach($datos as $row) {
                 $sub_array = array();
-                $sub_array[] = $row["inst_nom"];
+                $sub_array[] = $row["inst_nombre"];
                 $sub_array[] = $row["inst_apep"];
                 $sub_array[] = $row["inst_apem"];
                 $sub_array[] = $row["inst_correo"];
