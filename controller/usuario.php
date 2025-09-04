@@ -30,6 +30,7 @@
             echo json_encode($results);
             break;
 
+        // Microservicio para poder mostrar el listado de cursos de un usuario con certificado
         case "listar_cursos_top10":
             $datos = $usuario->get_cursos_por_usuario_top10($_SESSION["usu_id"]);
             $data = Array();
@@ -148,6 +149,29 @@
                 }
                 $sub_array[] = '<button type="button" onClick="editar('.$row["usu_id"].');" id="'.$row["usu_id"].'" class="btn btn-outline-warning btn-icon"><div><i class="fa fa-edit"></i></div></button>';
                 $sub_array[] = '<button type="button" onClick="eliminar('.$row["usu_id"].');" id="'.$row["usu_id"].'" class="btn btn-outline-danger btn-icon"><div><i class="fa fa-close"></i></div></button>';
+                $data[] = $sub_array;
+            }
+
+            $results = array(
+                "sEcho"=>1,
+                "iTotalRecords"=>count($data),
+                "iTotalDisplayRecords"=>count($data),
+                "aaData"=>$data);
+            echo json_encode($results);
+            break;
+        // Listar todos los usuarios pertenecientes a un curso
+        case "listar_cursos_usuario":
+            $datos = $usuario->get_cursos_usuario_por_id($_POST["cur_id"]);
+            $data = Array();
+            foreach($datos as $row) {
+                $sub_array = array();
+                $sub_array[] = $row["cur_nom"];
+                $sub_array[] = $row["usu_nom"] ." ".$row["usu_apep"] ." ".$row["usu_apem"];
+                $sub_array[] = $row["cur_fech_ini"];
+                $sub_array[] = $row["cur_fech_fin"];
+                $sub_array[] = $row["inst_nombre"] ." ".$row["inst_apep"];
+                $sub_array[] = '<button type="button" onClick="certificado('.$row["curd_id"].');" id="'.$row["curd_id"].'" class="btn btn-outline-primary btn-icon"><div><i class="fa fa-id-card-o"></i></div></button>';
+                $sub_array[] = '<button type="button" onClick="eliminar('.$row["curd_id"].');" id="'.$row["curd_id"].'" class="btn btn-outline-danger btn-icon"><div><i class="fa fa-close"></i></div></button>';
                 $data[] = $sub_array;
             }
 

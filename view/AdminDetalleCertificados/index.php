@@ -34,10 +34,8 @@ if (isset($_SESSION["usu_id"])) {
                             <div class="col-lg-4">
                                     <div class="form-group">
                                         <label class="form-control-label">Cursos: <span class="tx-danger">*</span> </label>
-                                        <select class="form-control select2" style="width: 100%" data-placeholder="Seleccione" name="usu_sex" id="usu_sex">
+                                        <select class="form-control select2" style="width: 100%" data-placeholder="Seleccione" name="cur_id" id="cur_id">
                                             <option label="Seleccione"></option>
-                                            <option value="M">Masculino</option>
-                                            <option value="F">Femenino</option>
                                         </select>
                                     </div>
                             </div><!-- col-4 -->
@@ -53,9 +51,11 @@ if (isset($_SESSION["usu_id"])) {
                             <thead>
                                 <tr>
                                     <th class="wd-15p">Curso</th>
+                                    <th class="wd-15p">Usuario</th>
                                     <th class="wd-15p">Fecha Inicio</th>
                                     <th class="wd-20p">Fecha Fin</th>
                                     <th class="wd-15p">Instructor</th>
+                                    <th class="wd-10p"></th>
                                     <th class="wd-10p"></th>
                                 </tr>
                             </thead>

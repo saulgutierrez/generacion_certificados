@@ -62,5 +62,16 @@
                 "aaData"=>$data);
             echo json_encode($results);
             break;
+        // Listar toda la información según formato de DataTable
+        case "combo":
+            $datos = $curso->get_curso();
+            if (is_array($datos) == true and count($datos) > 0) {
+                $html = "<option label='Seleccione'></option>";
+                foreach ($datos as $row) {
+                    // Concatenamos el contenido recuperado de la base de datos, para mostrarlo en el combobox
+                    $html .= "<option value='".$row['cur_id']."'>".$row['cur_nom']."</option>";
+                }
+                echo $html;
+            }
     }
 ?>
