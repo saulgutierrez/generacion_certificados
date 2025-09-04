@@ -97,6 +97,7 @@
                     tm_instructor ON tm_curso.inst_id = tm_instructor.inst_id 
                     WHERE 
                     td_curso_usuario.usu_id = ?
+                    AND td_curso_usuario.est = 1
                     LIMIT 10";
             $sql = $conectar->prepare($sql);
             $sql->bindValue(1, $usu_id);
@@ -127,7 +128,8 @@
                     tm_usuario ON td_curso_usuario.usu_id = tm_usuario.usu_id INNER JOIN 
                     tm_instructor ON tm_curso.inst_id = tm_instructor.inst_id 
                     WHERE 
-                    tm_curso.cur_id = ?";
+                    tm_curso.cur_id = ?
+                    AND td_curso_usuario.est = 1";
             $sql = $conectar->prepare($sql);
             $sql->bindValue(1, $cur_id);
             $sql->execute();

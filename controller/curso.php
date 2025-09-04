@@ -73,5 +73,9 @@
                 }
                 echo $html;
             }
+
+        case "eliminar_curso_usuario":
+            $curso->delete_curso_usuario($_POST["curd_id"]);
+            break;
     }
 ?>

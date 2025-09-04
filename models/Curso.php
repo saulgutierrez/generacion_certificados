@@ -87,5 +87,17 @@
             $sql->execute();
             return $resultado = $sql->fetchAll();
         }
+
+        // Funcion para queitar el aceso a un usuario de su certificado de curso desde la ventana
+        // Detalle certificado
+        public function delete_curso_usuario($curd_id) {
+            $conectar = parent::Conexion();
+            parent::set_names();
+            $sql = "UPDATE td_curso_usuario SET est = 0 WHERE curd_id = ?";
+            $sql = $conectar->prepare($sql);
+            $sql->bindValue(1, $curd_id);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
     }
 ?>

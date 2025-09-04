@@ -114,7 +114,7 @@ $(document).ready(function () {
     });
 });
 
-function eliminar(usu_id) {
+function eliminar(curd_id) {
     Swal.fire({
         title: "Eliminar",
         text: "¿Desea eliminar el registro?",
@@ -124,9 +124,8 @@ function eliminar(usu_id) {
         cancelButtonText: "No",
     }).then((result) => {
         if (result.value) {
-            $.post("../../controller/usuario.php?op=eliminar", {usu_id: usu_id}, function (data) {
-                console.log(data);
-                $('#usuario_data').DataTable().ajax.reload();
+            $.post("../../controller/curso.php?op=eliminar_curso_usuario", {curd_id: curd_id}, function (data) {
+                $('#detalle_data').DataTable().ajax.reload();
                 Swal.fire({
                     title: 'Correcto',
                     text: 'Se elimino correctamente',
@@ -143,6 +142,10 @@ function combo_curso() {
     $.post("../../controller/curso.php?op=combo", function (data) {
         $('#cur_id').html(data);
     });
+}
+
+function certificado(curd_id) {
+    window.open('../Certificado/index.php?curd_id='+ curd_id+' ', '_blank');
 }
 
 init();
