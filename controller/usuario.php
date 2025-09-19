@@ -161,17 +161,17 @@
             break;
         // Listar todos los usuarios pertenecientes a un curso
         case "listar_cursos_usuario":
-            $datos = $usuario->get_cursos_usuario_por_id($_POST["cur_id"]);
+            $datos = $usuario->get_cursos_usuario_por_id($_GET["data"]);
             $data = Array();
-            foreach($datos as $row) {
+            foreach($datos as $row){
                 $sub_array = array();
                 $sub_array[] = $row["cur_nom"];
-                $sub_array[] = $row["usu_nom"] ." ".$row["usu_apep"] ." ".$row["usu_apem"];
+                $sub_array[] = $row["usu_nom"]." ".$row["usu_apep"]." ".$row["usu_apem"];
                 $sub_array[] = $row["cur_fech_ini"];
                 $sub_array[] = $row["cur_fech_fin"];
-                $sub_array[] = $row["inst_nombre"] ." ".$row["inst_apep"];
-                $sub_array[] = '<button type="button" onClick="certificado('.$row["curd_id"].');" id="'.$row["curd_id"].'" class="btn btn-outline-primary btn-icon"><div><i class="fa fa-id-card-o"></i></div></button>';
-                $sub_array[] = '<button type="button" onClick="eliminar('.$row["curd_id"].');" id="'.$row["curd_id"].'" class="btn btn-outline-danger btn-icon"><div><i class="fa fa-close"></i></div></button>';
+                $sub_array[] = $row["inst_nombre"]." ".$row["inst_apep"];
+                $sub_array[] = '<button type="button" onClick="certificado('.$row["curd_id"].');"  id="'.$row["curd_id"].'" class="btn btn-outline-primary btn-icon"><div><i class="fa fa-id-card-o"></i></div></button>';
+                $sub_array[] = '<button type="button" onClick="eliminar('.$row["curd_id"].');"  id="'.$row["curd_id"].'" class="btn btn-outline-danger btn-icon"><div><i class="fa fa-close"></i></div></button>';
                 $data[] = $sub_array;
             }
 

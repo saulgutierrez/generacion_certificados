@@ -12,10 +12,10 @@ $(document).ready(function () {
 
     // Obtener id de combocurso
     $('#cur_id').on("change", function () {
-        $('#cur_id option:selected').each(function() {
+        $("#cur_id option:selected").each(function () {
             cur_id = $(this).val();
 
-            // Listado de DataTable
+            /* Listado de datatable */
             $('#detalle_data').DataTable({
                 "aProcessing": true,
                 "aServerSide": true,
@@ -25,12 +25,10 @@ $(document).ready(function () {
                     'excelHtml5',
                     'csvHtml5',
                 ],
-                "ajax": {
-                    url: "../../controller/usuario.php?op=listar_cursos_usuario",
-                    type: "POST",
-                    data: {
-                        cur_id:cur_id
-                    },
+                "ajax":{
+                    type:"GET",
+                    data: cur_id,
+                    url:"../../controller/usuario.php?op=listar_cursos_usuario&data="+cur_id,
                 },
                 "bDestroy": true,
                 "responsive": true,
@@ -62,9 +60,6 @@ $(document).ready(function () {
                     }
                 },
             });
-
-
-
         });
     });
 
