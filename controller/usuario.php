@@ -182,5 +182,25 @@
                 "aaData"=>$data);
             echo json_encode($results);
             break;
+
+        case "listar_detalle_usuario":
+            $datos = $usuario->get_usuario_modal($_POST["cur_id"]);
+            $data = Array();
+            foreach($datos as $row) {
+                $sub_array = array();
+                $sub_array[] = $row["usu_nom"];
+                $sub_array[] = $row["usu_apep"];
+                $sub_array[] = $row["usu_apem"];
+                $sub_array[] = $row["usu_correo"];
+                $data[] = $sub_array;
+            }
+
+            $results = array(
+                "sEcho"=>1,
+                "iTotalRecords"=>count($data),
+                "iTotalDisplayRecords"=>count($data),
+                "aaData"=>$data);
+            echo json_encode($results);
+            break;
     }
 ?>

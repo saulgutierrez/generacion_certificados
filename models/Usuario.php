@@ -276,5 +276,19 @@
             $sql->execute();
             return $resultado = $sql->fetchAll();
         }
+
+        // Mostrar los usuarios que NO se encuentran registrados dentro de un curso, en un modal, para tener
+        // la opcion de agregarlos, desde el menu Detalle Certificado
+        public function get_usuario_modal($cur_id) {
+            $conectar = parent::Conexion();
+            parent::set_names();
+            $sql = "SELECT * FROM tm_usuario 
+                    WHERE estado = 1
+                    AND usu_id NOT IN (SELECT usu_id FROM td_curso_usuario WHERE cur_id = ?)";
+            $sql = $conectar->prepare($sql);
+            $sql->bindValue(1, $cur_id);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
     }
 ?>
