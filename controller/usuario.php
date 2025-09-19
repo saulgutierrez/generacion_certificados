@@ -188,6 +188,7 @@
             $data = Array();
             foreach($datos as $row) {
                 $sub_array = array();
+                $sub_array[] = "<input type='checkbox' name='detallecheck[]' value='". $row["usu_id"] ."'>";
                 $sub_array[] = $row["usu_nom"];
                 $sub_array[] = $row["usu_apep"];
                 $sub_array[] = $row["usu_apem"];

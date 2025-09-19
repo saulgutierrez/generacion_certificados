@@ -205,4 +205,20 @@ function listar_usuario(cur_id) {
     });
 }
 
+function registrardetalle() {
+    var usu_id = [];
+    table = $('#usuario_data').DataTable();
+    // Recorremos cada celda de la tabla para verificar si esta marcada como checked
+    table.rows().every(function (rowIdx, tableLoop, rowLoop) {
+        cell1 = table.cell({ row: rowIdx, column: 0 }).node();
+        if ($('input', cell1).prop("checked") == true) {
+            // En caso de que este marcado como checked, almacenamos su id
+            id = $('input', cell1).val();
+            usu_id.push([id]);
+        }
+    });
+
+    console.log(usu_id);
+}
+
 init();
