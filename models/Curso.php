@@ -99,5 +99,17 @@
             $sql->execute();
             return $resultado = $sql->fetchAll();
         }
+
+        // Funcion para otorgar acceso a un usuario a un certificado
+        public function insert_curso_usuario($cur_id, $usu_id) {
+            $conectar = parent::Conexion();
+            parent::set_names();
+            $sql = "INSERT INTO td_curso_usuario(curd_id, cur_id, usu_id, fecha_crea, est) VALUES (NULL, ?, ?, now(), 1);";
+            $sql = $conectar->prepare($sql);
+            $sql->bindValue(1, $cur_id);
+            $sql->bindValue(2, $usu_id);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
     }
 ?>

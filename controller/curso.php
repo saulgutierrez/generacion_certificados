@@ -77,5 +77,17 @@
         case "eliminar_curso_usuario":
             $curso->delete_curso_usuario($_POST["curd_id"]);
             break;
+        
+        // Otorgar acceso a un usuario a un certificado
+        case "insert_curso_usuario":
+            var_dump($_POST);
+            // Separamos cada elemento del array usu_id por un delimitador, en este caso, la coma
+            $datos = explode(',', $_POST['usu_id']);
+            foreach ($datos as $row) {
+                // Insertamos en la base de datos, cada id del curso seleccionado, junto con el id del
+                // usuario al que se le ha otorgado el acceso
+                $curso->insert_curso_usuario($_POST["cur_id"], $row);
+            }
+            break;
     }
 ?>

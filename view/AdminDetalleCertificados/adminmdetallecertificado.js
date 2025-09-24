@@ -218,7 +218,33 @@ function registrardetalle() {
         }
     });
 
-    console.log(usu_id);
+    if (usu_id == 0) {
+        Swal.fire({
+            title: 'Error',
+            text: 'Seleccionar usuarios',
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+        })
+    } else {
+        const formData = new FormData($("#detalle_check")[0]);
+        formData.append('cur_id', cur_id);
+        formData.append('usu_id', usu_id);
+
+        $.ajax({
+            url:    "../../controller/curso.php?op=insert_curso_usuario",
+            type:   "POST",
+            data:   formData,
+            contentType:    false,
+            processData:    false,
+        });
+
+        // Recargar DataTable de los cursos de los usuarios que tienen acceso al certificado
+        $('#detalle_data').DataTable().ajax.reload();
+        // Recargar DataTable de los cursos de los usuarios que NO tienen acceso al certificado.
+        $('#usuario_data').DataTable().ajax.reload();
+        // Ocultar modal
+        $('#modalmantenimiento').modal('hide');
+    }
 }
 
 init();

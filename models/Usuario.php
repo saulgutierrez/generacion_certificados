@@ -279,12 +279,15 @@
 
         // Mostrar los usuarios que NO se encuentran registrados dentro de un curso, en un modal, para tener
         // la opcion de agregarlos, desde el menu Detalle Certificado
+        // Es importante evaluar por la columna est/estado = 1 ya que esa columna indica los cursos que se
+        // encuentran activos/inactivos, para que el filtrado por cursos disponibles/en uso de cadad usuario
+        // se actualice correctamente
         public function get_usuario_modal($cur_id) {
             $conectar = parent::Conexion();
             parent::set_names();
             $sql = "SELECT * FROM tm_usuario 
                     WHERE estado = 1
-                    AND usu_id NOT IN (SELECT usu_id FROM td_curso_usuario WHERE cur_id = ?)";
+                    AND usu_id NOT IN (SELECT usu_id FROM td_curso_usuario WHERE cur_id = ? AND est = 1)";
             $sql = $conectar->prepare($sql);
             $sql->bindValue(1, $cur_id);
             $sql->execute();
