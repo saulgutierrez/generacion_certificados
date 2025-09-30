@@ -147,6 +147,7 @@
                     tm_curso.cur_descrip, 
                     tm_curso.cur_fech_ini, 
                     tm_curso.cur_fech_fin, 
+                    tm_curso.cur_img, 
                     tm_usuario.usu_id, 
                     tm_usuario.usu_nom, 
                     tm_usuario.usu_apep, 

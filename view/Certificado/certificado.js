@@ -3,16 +3,16 @@ const ctx = canvas.getContext('2d');
 
 $(document).ready(function () {
     var curd_id = getUrlParameter('curd_id');
-    // Inicializamos la imagen
-    const image = new Image();
-    // Ruta de la imagen
-    image.src = '../../public/certificado.png';
 
     $.post("../../controller/usuario.php?op=mostrar_curso_detalle", { curd_id : curd_id }, function (data) {
         data = JSON.parse(data);
         console.log(data);
         $('#cur_descrip').html(data.cur_descrip);
 
+        // Inicializamos la imagen
+        const image = new Image();
+        // Ruta de la imagen, obtenida desde un campo en base de datos
+        image.src = data.cur_img;
         // Dimensionamos y seleccionamos imagen
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
         // Definimos el tamanio de la fuente
@@ -30,9 +30,16 @@ $(document).ready(function () {
         ctx.font = "15px Arial";
         ctx.fillText("Fecha de inicio: " +data.cur_fech_ini + " / Fecha de finalización: "+data.cur_fech_fin, x, 330);
     });
-
-
 });
+
+
+// Recarga por defecto solo una vez
+window.onload = function () {
+    if (!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload(true);
+    }
+}
 
 $(document).on("click", "#btnpng", function () {
     let lblpng = document.createElement('a');

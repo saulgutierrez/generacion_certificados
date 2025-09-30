@@ -3,7 +3,7 @@
         public function insert_curso($cat_id, $cur_nom, $cur_descrip, $cur_fech_ini, $cur_fech_fin, $inst_id) {
             $conectar = parent::Conexion();
             parent::set_names();
-            $sql = "INSERT INTO tm_curso (cur_id, cat_id, cur_nom, cur_descrip, cur_fech_ini, cur_fech_fin, inst_id, fech_crea, est) VALUES (NULL,?,?,?,?,?,?,now(),'1');";
+            $sql = "INSERT INTO tm_curso (cur_id, cat_id, cur_nom, cur_descrip, cur_fech_ini, cur_fech_fin, inst_id, cur_img, fech_crea, est) VALUES (NULL,?,?,?,?,?,?,'../../public/1.png',now(),'1');";
             $sql = $conectar->prepare($sql);
             $sql->bindValue(1, $cat_id);
             $sql->bindValue(2, $cur_nom);

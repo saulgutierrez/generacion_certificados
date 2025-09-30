@@ -63,6 +63,7 @@
                     $output["cur_descrip"] = $row["cur_descrip"];
                     $output["cur_fech_ini"] = $row["cur_fech_ini"];
                     $output["cur_fech_fin"] = $row["cur_fech_fin"];
+                    $output["cur_img"] = $row["cur_img"];
                     $output["usu_id"] = $row["usu_id"];
                     $output["usu_nom"] = $row["usu_nom"];
                     $output["usu_apep"] = $row["usu_apep"];
