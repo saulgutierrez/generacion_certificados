@@ -52,6 +52,7 @@
                 $sub_array[] = $row["inst_nombre"] ." ".$row["inst_apep"] ." ".$row["inst_apem"];
                 $sub_array[] = '<button type="button" onClick="editar('.$row["cur_id"].');" id="'.$row["cur_id"].'" class="btn btn-outline-warning btn-icon"><div><i class="fa fa-edit"></i></div></button>';
                 $sub_array[] = '<button type="button" onClick="eliminar('.$row["cur_id"].');" id="'.$row["cur_id"].'" class="btn btn-outline-danger btn-icon"><div><i class="fa fa-close"></i></div></button>';
+                $sub_array[] = '<button type="button" onClick="imagen('.$row["cur_id"].');" id="'.$row["cur_id"].'" class="btn btn-outline-success btn-icon"><div><i class="fa fa-file"></i></div></button>';
                 $data[] = $sub_array;
             }
 

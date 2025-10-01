@@ -42,6 +42,7 @@ if (isset($_SESSION["usu_id"])) {
                                     <th class="wd-15p">Instructor</th>
                                     <th class="wd-10p"></th>
                                     <th class="wd-10p"></th>
+                                    <th class="wd-10p"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -53,6 +54,7 @@ if (isset($_SESSION["usu_id"])) {
         </div><!-- br-mainpanel -->
         <!-- ########## END: MAIN PANEL ########## -->
         <?php require_once("modalmantenimiento.php"); ?> 
+        <?php require_once("modalfile.php"); ?> 
         <?php require_once("../html/MainJS.php"); ?>
         <script type="text/javascript" src="adminmntcurso.js"></script>
     </body>

@@ -147,4 +147,8 @@ function combo_instructor() {
     });
 }
 
+function imagen(cur_id) {
+    $('#modalfile').modal('show');
+}
+
 init();

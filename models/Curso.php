@@ -111,5 +111,40 @@
             $sql->execute();
             return $resultado = $sql->fetchAll();
         }
+
+        public function update_imagen_curso($cur_id, $cur_img) {
+            $conectar = parent::Conexion();
+            parent::set_names();
+            require_once('Curso.php');
+            $curx = new Curso();
+            $cur_img = '';
+            // Cuando se halla establecido el campo name en el input cur_img, es decir, cuando se halla subido la imagen
+            // se llama a la funcion upload file, que es la que se encargara de almacenar el archivo, crear la ruta de acceso,
+            // y almacenar esta ruta en la base de datos
+            if ($_FILES["cur_img"]["name"] != '') {
+                $cur_img = $curx->upload_file();
+            }
+            $sql = "UPDATE tm_curso SET cur_img = ? WHERE cur_id = ?";
+            $sql = $conectar->prepare($sql);
+            $sql->bindValue(1, $cur_img);
+            $sql->bindValue(2, $cur_id);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
+
+        public function upload_file() {
+            if (isset($_FILES["cur_img"])) {
+                // Extraer extension del archivo
+                $extension = explode('.', $_FILES['cur_img']['name']);
+                // Cambiamos el nombre del archivo por un nombre aleatorio y agregamos la extension
+                $new_name = rand() . '.' . $extension[1];
+                // Creamos la ruta donde se almacenara el archivo
+                $destination = '../public/' . $new_name;
+                // Movemos el archivo subido a la ruta de destino donde se almecenara
+                move_uploaded_file($_FILES['cur_img']['tmp_name'], $destination);
+                // Retornamos la ruta del archivo, la cual se almacenara en la base de datos
+                return $new_name;
+            }
+        }
     }
 ?>
