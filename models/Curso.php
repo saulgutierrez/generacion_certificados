@@ -60,6 +60,7 @@
                 tm_curso.cur_fech_ini,
                 tm_curso.cur_fech_fin,
                 tm_curso.cat_id,
+                tm_curso.cur_img,
                 tm_categoria.cat_nom,
                 tm_curso.inst_id,
                 tm_instructor.inst_nombre,

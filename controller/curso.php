@@ -46,7 +46,7 @@
                 $sub_array = array();
                 $sub_array[] = $row["cat_nom"];
                 // Guardar la entrada en mayuscula
-                $sub_array[] = strtoupper($row["cur_nom"]);
+                $sub_array[] = '<a href="'.$row["cur_img"].'" target="_blank">'.strtoupper($row["cur_nom"]).'</a>';
                 $sub_array[] = $row["cur_fech_ini"];
                 $sub_array[] = $row["cur_fech_fin"];
                 $sub_array[] = $row["inst_nombre"] ." ".$row["inst_apep"] ." ".$row["inst_apem"];

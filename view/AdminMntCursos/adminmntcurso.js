@@ -168,6 +168,7 @@ function guardaryeditarimg(e) {
         contentType:    false,
         processData:    false,
         success:        function(datos) {
+            $('#cursos_data').DataTable().ajax.reload();
             Swal.fire({
                 title: 'Correcto!',
                 text:   'Se Actualizo Correctamente',
