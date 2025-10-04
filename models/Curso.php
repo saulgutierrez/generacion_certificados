@@ -143,7 +143,7 @@
                 // Movemos el archivo subido a la ruta de destino donde se almecenara
                 move_uploaded_file($_FILES['cur_img']['tmp_name'], $destination);
                 // Retornamos la ruta del archivo, la cual se almacenara en la base de datos
-                return $new_name;
+                return "../../public/".$new_name;
             }
         }
     }

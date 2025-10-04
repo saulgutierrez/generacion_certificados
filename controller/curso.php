@@ -90,5 +90,11 @@
                 $curso->insert_curso_usuario($_POST["cur_id"], $row);
             }
             break;
+        
+        case "update_imagen_curso":
+            var_dump($_POST);
+            var_dump($_FILES);
+            $curso->update_imagen_curso($_POST['curx_idx'], $_FILES['cur_img']);
+            break;
     }
 ?>
