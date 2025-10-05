@@ -110,7 +110,10 @@
             $sql->bindValue(1, $cur_id);
             $sql->bindValue(2, $usu_id);
             $sql->execute();
-            return $resultado = $sql->fetchAll();
+            $sql1 = "SELECT last_insert_id() as curd_id";
+            $sql1 = $conectar->prepare($sql1);
+            $sql1->execute();
+            return $resultado = $sql1->fetchAll();
         }
 
         public function update_imagen_curso($cur_id, $cur_img) {

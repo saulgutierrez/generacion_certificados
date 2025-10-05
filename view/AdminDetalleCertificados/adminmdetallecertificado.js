@@ -236,6 +236,22 @@ function registrardetalle() {
             data:   formData,
             contentType:    false,
             processData:    false,
+            success:        function(data) {
+                data = JSON.parse(data);
+                data.forEach(e => {
+                    e.forEach(i => {
+                        i.forEach(j => {
+                            console.log(j['curd_id']);
+                            $.ajax({
+                                type: "POST",
+                                url: "../../controller/curso.php?op=generar_qr",
+                                data: {curd_id : j["curd_id"]},
+                                dataType: "json"
+                            });
+                        });
+                    });
+                });
+            }
         });
 
         // Recargar DataTable de los cursos de los usuarios que tienen acceso al certificado

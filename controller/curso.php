@@ -81,19 +81,31 @@
         
         // Otorgar acceso a un usuario a un certificado
         case "insert_curso_usuario":
-            var_dump($_POST);
             // Separamos cada elemento del array usu_id por un delimitador, en este caso, la coma
             $datos = explode(',', $_POST['usu_id']);
-            foreach ($datos as $row) {
-                // Insertamos en la base de datos, cada id del curso seleccionado, junto con el id del
-                // usuario al que se le ha otorgado el acceso
-                $curso->insert_curso_usuario($_POST["cur_id"], $row);
+
+            // Registrar tantos usuarios vengan de la vista
+            $data = Array();
+            foreach($datos as $row) {
+                $sub_array = array();
+                $idx = $curso->insert_curso_usuario($_POST["cur_id"], $row);
+                $sub_array[] = $idx;
+                $data[] = $sub_array;
             }
+
+            echo json_encode($data);
             break;
+
+        case "generar_qr":
+            require 'phpqrcode/qrlib.php';
+            $curd_id_value = $_POST['curd_id'];
+            echo $curd_id_value;
+            $url = conectar::ruta()."view/Certificado/index.php?curd_id=" .$curd_id_value;
+            $dir = '../public/qr/';
+            $filename = 'qr_code_'.$curd_id_value. '.png';
+            QRcode::png($url, $dir . $filename, QR_ECLEVEL_L, 5);
         
         case "update_imagen_curso":
-            var_dump($_POST);
-            var_dump($_FILES);
             $curso->update_imagen_curso($_POST['curx_idx'], $_FILES['cur_img']);
             break;
     }
