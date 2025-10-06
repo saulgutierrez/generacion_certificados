@@ -11,6 +11,7 @@ $(document).ready(function () {
 
         // Inicializamos la imagen
         const image = new Image();
+        const imageQR = new Image();
         // Ruta de la imagen, obtenida desde un campo en base de datos
         image.src = data.cur_img;
         // Dimensionamos y seleccionamos imagen
@@ -29,6 +30,11 @@ $(document).ready(function () {
         ctx.fillText("Instuctor", x, 260);
         ctx.font = "15px Arial";
         ctx.fillText("Fecha de inicio: " +data.cur_fech_ini + " / Fecha de finalización: "+data.cur_fech_fin, x, 330);
+
+        // Ruta de la imagen, obtenida desde un campo en base de datos
+        imageQR.src = '../../public/qr/qr_code_' + curd_id + '.png';
+        // Dimensionamos y seleccionamos imagen
+        ctx.drawImage(imageQR, 320, 340, 60, 60);
     });
 });
 
