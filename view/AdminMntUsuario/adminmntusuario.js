@@ -100,6 +100,7 @@ function editar(usu_id) {
         $('#usu_pass').val(data.usu_pass);
         $('#usu_sex').val(data.usu_sex).trigger('change');
         $('#usu_telf').val(data.usu_telf);
+        $('#usu_dni').val(data.usu_dni);
         $('#rol_id').val(data.rol_id).trigger('change');
     });
     $('#lbltitulo').html('Editar Registro');
