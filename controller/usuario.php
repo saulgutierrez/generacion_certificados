@@ -32,7 +32,7 @@
 
         // Microservicio para poder mostrar el listado de cursos de un usuario con certificado
         case "listar_cursos_top10":
-            $datos = $usuario->get_cursos_por_usuario_top10($_SESSION["usu_id"]);
+            $datos = $usuario->get_cursos_por_usuario_top10($_POST["usu_id"]);
             $data = Array();
             foreach($datos as $row) {
                 $sub_array = array();
