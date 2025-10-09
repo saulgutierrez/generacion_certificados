@@ -10,7 +10,7 @@
     switch($_GET["op"]) {
         // Microservicio para poder mostrar el listado de cursos de un usuario con certificado
         case "listar_cursos":
-            $datos = $usuario->get_cursos_por_usuario($_SESSION["usu_id"]);
+            $datos = $usuario->get_cursos_por_usuario($_POST["usu_id"]);
             $data = Array();
             foreach($datos as $row) {
                 $sub_array = array();

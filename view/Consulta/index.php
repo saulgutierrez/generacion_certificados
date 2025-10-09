@@ -28,7 +28,7 @@
     <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
     <meta name="author" content="ThemePixels">
 
-    <title>Bracket Responsive Bootstrap 4 Admin Template</title>
+    <title>Consulta</title>
 
     <!-- vendor css -->
     <link href="../../public/lib/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -62,7 +62,7 @@
               <div class="pd-x-30 pd-t-30 pd-b-15">
                 <div class="d-flex align-items-center justify-content-between">
                   <div>
-                    <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1">Listado de cursos</h6>
+                    <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1" id="lbldatos">Listado de cursos</h6>
                     <p class="mg-b-0">Aqui podra visualizar los Certificados</p>
                   </div>
                 </div><!-- d-flex -->

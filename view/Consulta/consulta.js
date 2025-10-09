@@ -20,6 +20,7 @@ $(document).on("click", "#btnconsultar", function () {
             if (data.length > 0) {
                 data = JSON.parse(data);
                 console.log(data);
+                $('#lbldatos').html("Listado de cursos: " + data.usu_nom + " " + data.usu_apep + " " + data.usu_apem);
                 $('#cursos_data').DataTable({
                     "aProcessing": true,
                     "aServerSide": true,
@@ -30,7 +31,7 @@ $(document).on("click", "#btnconsultar", function () {
                         'csvHtml5',
                     ],
                     "ajax": {
-                        url: "../../controller/usuario.php?op=listar_cursos_top10",
+                        url: "../../controller/usuario.php?op=listar_cursos",
                         type: "POST",
                         data: {
                             usu_id:data.usu_id
@@ -78,3 +79,7 @@ $(document).on("click", "#btnconsultar", function () {
         });
     }
 });
+
+function certificado(curd_id) {
+    window.open('../Certificado/index.php?curd_id='+ curd_id+' ', '_blank');
+}
