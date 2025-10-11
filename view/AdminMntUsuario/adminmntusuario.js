@@ -140,4 +140,8 @@ function nuevo() {
     $('#modalmantenimiento').modal('show');
 }
 
+$(document).on("click", "#btnplantilla", function () {
+    $("#modalplantilla").modal("show");
+});
+
 init();
