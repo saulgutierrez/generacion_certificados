@@ -224,7 +224,7 @@
         public function insert_usuario($usu_nom, $usu_apep, $usu_apem, $usu_correo, $usu_pass, $usu_sex, $usu_telf, $rol_id, $usu_dni) {
             $conectar = parent::Conexion();
             parent::set_names();
-            $sql = "INSERT INTO tm_usuario (usu_id, usu_nom, usu_apep, usu_apem, usu_correo, usu_pass, usu_sex, usu_telf, rol_id, usu_dni, fech_crea, estado) VALUES (NULL, ?,?,?,?,?,?,?,?,now(), '1');";
+            $sql = "INSERT INTO tm_usuario (usu_id, usu_nom, usu_apep, usu_apem, usu_correo, usu_pass, usu_sex, usu_telf, rol_id, usu_dni, fech_crea, estado) VALUES (NULL,?,?,?,?,?,?,?,?,?,now(), '1');";
             $sql = $conectar->prepare($sql);
             $sql->bindValue(1, $usu_nom);
             $sql->bindValue(2, $usu_apep);
